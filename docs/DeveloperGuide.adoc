@@ -19,20 +19,18 @@ By: `Team W17-3`      Since: `May 2019`      Licence: `MIT`
 
 == Introduction
 
-< Add introduction here>
-Sound inviting, friendly yet professional +
-Describe software +
-Describe purpose of the developer guide, its intended audience and perhaps how to use it. +
-Provide a preview of the contents of the developer guide +
-Include some info about the developer team and how to contact them.
-
 Welcome to *In-Credit-Ble*!
 
-In-Credit-Ble ...
+In-Credit-Ble is a finance tracker application created to simplify the managing and tracking
+of the user’s personal finances. With In-Credit-Ble, users will be able to stick to their budget
+and be more aware of their spending habits.
 
-This developer guide.. <Ask them go setting up section>
+This developer guide specifies the design and implementation of In-Credit-Ble. The intended audience of
+this document is the developers, designers and software testers of our application.
 
-See <<AboutUs#, AboutUs.adoc>> and <<ContactUs#, ContactUs.adoc>> for more information on how to contact us!
+Please continue on to the <<Setting up#, Setting Up>> section to get started. You can also read the <<AboutUs#, AboutUs.adoc>>
+and <<ContactUs#, ContactUs.adoc>> for more information on how to contact us!
+
 
 == Setting up
 
