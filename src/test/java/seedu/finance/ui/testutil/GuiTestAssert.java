@@ -88,7 +88,7 @@ public class GuiTestAssert {
         case "vices":
             return "purple";
 
-        case"husband":
+        case "husband":
             return "brown";
 
         case "movies":

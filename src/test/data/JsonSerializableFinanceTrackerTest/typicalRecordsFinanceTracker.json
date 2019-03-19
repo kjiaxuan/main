@@ -1,44 +1,44 @@
 {
   "_comment": "FinanceTracker saves file which contains the same Record values as in TypicalRecords#getTypicalFinanceTracker()",
   "records" : [ {
-    "name" : "Alice Pauline",
-    "amount" : "$120.30",
+    "name" : "Apple",
+    "amount" : "$1.00",
     "date" : "12/02/2017",
     "description": "",
-    "tagged" : [ "friends" ]
+    "tagged" : [ "groceries" ]
   }, {
-    "name" : "Benson Meier",
-    "amount" : "$119",
+    "name" : "Banana Donut",
+    "amount" : "$2.50",
     "date" : "12/02/2015",
     "description": "",
-    "tagged" : [ "owesMoney", "friends" ]
+    "tagged" : [ "food" ]
   }, {
-    "name" : "Carl Kurz",
-    "amount" : "$130.45",
+    "name" : "Cap",
+    "amount" : "$15.00",
     "date" : "12/05/2017",
     "description": "",
     "tagged" : [ ]
   }, {
-    "name" : "Daniel Meier",
-    "amount" : "$129",
+    "name" : "Chocolate Donut",
+    "amount" : "$0.90",
     "date" : "12/02/2007",
     "description": "",
-    "tagged" : [ "friends" ]
+    "tagged" : [ "food"]
   }, {
-    "name" : "Elle Meyer",
-    "amount" : "$150",
+    "name" : "Earrings",
+    "amount" : "$12.99",
     "date" : "12/12/2017",
     "description": "",
     "tagged" : [ ]
   }, {
-    "name" : "Fiona Kunz",
-    "amount" : "$520",
+    "name" : "Fruits",
+    "amount" : "$20.00",
     "date" : "02/02/2017",
     "description": "",
     "tagged" : [ ]
   }, {
-    "name" : "George Best",
-    "amount" : "$128.90",
+    "name" : "Gift",
+    "amount" : "$24.90",
     "date" : "12/02/2027",
     "description": "",
     "tagged" : [ ]

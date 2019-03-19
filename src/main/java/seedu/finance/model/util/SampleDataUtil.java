@@ -22,15 +22,15 @@ public class SampleDataUtil {
     public static Record[] getSampleRecords() {
         return new Record[] {
             new Record(new Name("Weekly groceries purchase"), new Amount("$100"), new Date("12/02/2018"),
-                new Description(STANDARD_DESCRIPTION), getCategorySet("Shopping")),
+                new Description(STANDARD_DESCRIPTION), getCategorySet("shopping")),
             new Record(new Name("H and M Clothes"), new Amount("$100"), new Date("12/02/2018"),
-                new Description(STANDARD_DESCRIPTION), getCategorySet("Shopping")),
+                new Description(STANDARD_DESCRIPTION), getCategorySet("shopping")),
             new Record(new Name("Chicken Rice lunch"), new Amount("$100"), new Date("12/02/2018"),
-                new Description(STANDARD_DESCRIPTION), getCategorySet("Food")),
+                new Description(STANDARD_DESCRIPTION), getCategorySet("food")),
             new Record(new Name("Haircut"), new Amount("$100"), new Date("12/02/2018"),
                 new Description(STANDARD_DESCRIPTION), getCategorySet("entertainment")),
             new Record(new Name("Bus Ride"), new Amount("$100"), new Date("12/02/2018"),
-                new Description(STANDARD_DESCRIPTION), getCategorySet("Transportation")),
+                new Description(STANDARD_DESCRIPTION), getCategorySet("transportation")),
             new Record(new Name("Cigarettes"), new Amount("$100"), new Date("12/02/2018"),
                 new Description(STANDARD_DESCRIPTION), getCategorySet("vices"))
         };
