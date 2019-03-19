@@ -5,9 +5,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.finance.commons.core.Messages.MESSAGE_RECORDS_LISTED_OVERVIEW;
 import static seedu.finance.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.finance.testutil.TypicalRecords.CARL;
-import static seedu.finance.testutil.TypicalRecords.ELLE;
-import static seedu.finance.testutil.TypicalRecords.FIONA;
+import static seedu.finance.testutil.TypicalRecords.CAP;
+import static seedu.finance.testutil.TypicalRecords.EARRINGS;
+import static seedu.finance.testutil.TypicalRecords.FRUITS;
 import static seedu.finance.testutil.TypicalRecords.getTypicalFinanceTracker;
 
 import java.util.Arrays;
@@ -73,7 +73,7 @@ public class SearchCommandTest {
         SearchCommand command = new SearchCommand(predicate);
         expectedModel.updateFilteredRecordList(predicate);
         assertCommandSuccess(command, model, commandHistory, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(CARL, ELLE, FIONA), model.getFilteredRecordList());
+        assertEquals(Arrays.asList(CAP, EARRINGS, FRUITS), model.getFilteredRecordList());
     }
 
     /**

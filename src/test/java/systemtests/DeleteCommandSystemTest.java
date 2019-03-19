@@ -7,7 +7,7 @@ import static seedu.finance.testutil.TestUtil.getLastIndex;
 import static seedu.finance.testutil.TestUtil.getMidIndex;
 import static seedu.finance.testutil.TestUtil.getRecord;
 import static seedu.finance.testutil.TypicalIndexes.INDEX_FIRST_RECORD;
-import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_MEIER;
+import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_DONUT;
 
 import org.junit.Test;
 
@@ -64,7 +64,7 @@ public class DeleteCommandSystemTest extends FinanceTrackerSystemTest {
         /* ------------------ Performing delete operation while a filtered list is being shown ---------------------- */
 
         /* Case: filtered record list, delete index within bounds of finance tracker and record list -> deleted */
-        showRecordsWithName(KEYWORD_MATCHING_MEIER);
+        showRecordsWithName(KEYWORD_MATCHING_DONUT);
         Index index = INDEX_FIRST_RECORD;
         assertTrue(index.getZeroBased() < getModel().getFilteredRecordList().size());
         assertCommandSuccess(index);
@@ -72,7 +72,7 @@ public class DeleteCommandSystemTest extends FinanceTrackerSystemTest {
         /* Case: filtered record list, delete index within bounds of finance tracker but out of bounds of record list
          * -> rejected
          */
-        showRecordsWithName(KEYWORD_MATCHING_MEIER);
+        showRecordsWithName(KEYWORD_MATCHING_DONUT);
         int invalidIndex = getModel().getFinanceTracker().getRecordList().size();
         command = DeleteCommand.COMMAND_WORD + " " + invalidIndex;
         assertCommandFailure(command, MESSAGE_INVALID_RECORD_DISPLAYED_INDEX);

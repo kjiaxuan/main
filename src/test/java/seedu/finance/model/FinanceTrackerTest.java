@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_AMOUNT_BOB;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_CATEGORY_HUSBAND;
-import static seedu.finance.testutil.TypicalRecords.ALICE;
+import static seedu.finance.testutil.TypicalRecords.APPLE;
 import static seedu.finance.testutil.TypicalRecords.getTypicalFinanceTracker;
 
 import java.util.Arrays;
@@ -53,10 +53,10 @@ public class FinanceTrackerTest {
     @Test
     public void resetData_withDuplicateRecords_throwsDuplicateRecordException() {
         // Two records with the same identity fields
-        Record editedAlice = new RecordBuilder(ALICE).withAmount(VALID_AMOUNT_BOB)
+        Record editedAlice = new RecordBuilder(APPLE).withAmount(VALID_AMOUNT_BOB)
                 .withCategories(VALID_CATEGORY_HUSBAND)
                 .build();
-        List<Record> newRecords = Arrays.asList(ALICE, editedAlice);
+        List<Record> newRecords = Arrays.asList(APPLE, editedAlice);
         FinanceTrackerStub newData = new FinanceTrackerStub(newRecords);
 
         thrown.expect(DuplicateRecordException.class);
@@ -71,19 +71,19 @@ public class FinanceTrackerTest {
 
     @Test
     public void hasRecord_recordNotInFinanceTracker_returnsFalse() {
-        assertFalse(financeTracker.hasRecord(ALICE));
+        assertFalse(financeTracker.hasRecord(APPLE));
     }
 
     @Test
     public void hasRecord_recordInFinanceTracker_returnsTrue() {
-        financeTracker.addRecord(ALICE);
-        assertTrue(financeTracker.hasRecord(ALICE));
+        financeTracker.addRecord(APPLE);
+        assertTrue(financeTracker.hasRecord(APPLE));
     }
 
     @Test
     public void hasRecord_recordWithSameIdentityFieldsInFinanceTracker_returnsTrue() {
-        financeTracker.addRecord(ALICE);
-        Record editedAlice = new RecordBuilder(ALICE).withAmount(VALID_AMOUNT_BOB)
+        financeTracker.addRecord(APPLE);
+        Record editedAlice = new RecordBuilder(APPLE).withAmount(VALID_AMOUNT_BOB)
                 .withCategories(VALID_CATEGORY_HUSBAND).build();
         assertTrue(financeTracker.hasRecord(editedAlice));
     }
@@ -99,7 +99,7 @@ public class FinanceTrackerTest {
         SimpleIntegerProperty counter = new SimpleIntegerProperty();
         InvalidationListener listener = observable -> counter.set(counter.get() + 1);
         financeTracker.addListener(listener);
-        financeTracker.addRecord(ALICE);
+        financeTracker.addRecord(APPLE);
         assertEquals(1, counter.get());
     }
 
@@ -109,7 +109,7 @@ public class FinanceTrackerTest {
         InvalidationListener listener = observable -> counter.set(counter.get() + 1);
         financeTracker.addListener(listener);
         financeTracker.removeListener(listener);
-        financeTracker.addRecord(ALICE);
+        financeTracker.addRecord(APPLE);
         assertEquals(0, counter.get());
     }
 

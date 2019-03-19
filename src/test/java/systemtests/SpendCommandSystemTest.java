@@ -1,6 +1,7 @@
 package systemtests;
 
 import static seedu.finance.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import static seedu.finance.logic.commands.CommandTestUtil.AMOUNT_DESC_AMY;
 import static seedu.finance.logic.commands.CommandTestUtil.AMOUNT_DESC_BOB;
 import static seedu.finance.logic.commands.CommandTestUtil.CATEGORY_DESC_FRIEND;
@@ -17,13 +18,13 @@ import static seedu.finance.logic.commands.CommandTestUtil.VALID_AMOUNT_BOB;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_DATE_BOB;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.finance.logic.parser.CliSyntax.PREFIX_CATEGORY;
-import static seedu.finance.testutil.TypicalRecords.ALICE;
 import static seedu.finance.testutil.TypicalRecords.AMY;
+import static seedu.finance.testutil.TypicalRecords.APPLE;
 import static seedu.finance.testutil.TypicalRecords.BOB;
-import static seedu.finance.testutil.TypicalRecords.CARL;
-import static seedu.finance.testutil.TypicalRecords.HOON;
-import static seedu.finance.testutil.TypicalRecords.IDA;
-import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_MEIER;
+import static seedu.finance.testutil.TypicalRecords.CAP;
+import static seedu.finance.testutil.TypicalRecords.HAMBURGER;
+import static seedu.finance.testutil.TypicalRecords.IPHONE;
+import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_DONUT;
 
 import org.junit.Test;
 
@@ -83,7 +84,7 @@ public class SpendCommandSystemTest extends FinanceTrackerSystemTest {
 
         /* Case: add to empty finance tracker -> added */
         deleteAllRecords();
-        assertCommandSuccess(ALICE);
+        assertCommandSuccess(APPLE);
 
         /* Case: add a record with categories, command with parameters in random order -> added */
         toSpend = BOB;
@@ -92,38 +93,38 @@ public class SpendCommandSystemTest extends FinanceTrackerSystemTest {
         assertCommandSuccess(command, toSpend);
 
         /* Case: add a record, missing categories -> added */
-        assertCommandSuccess(HOON);
+        assertCommandSuccess(HAMBURGER);
 
         /* -------------------------- Perform add operation on the shown filtered list ------------------------------ */
 
         /* Case: filters the record list before adding -> added */
-        showRecordsWithName(KEYWORD_MATCHING_MEIER);
-        assertCommandSuccess(IDA);
+        showRecordsWithName(KEYWORD_MATCHING_DONUT);
+        assertCommandSuccess(IPHONE);
 
         /* ------------------------ Perform add operation while a record card is selected --------------------------- */
 
         /* Case: selects first card in the record list, add a record -> added, card selection remains unchanged */
         selectRecord(Index.fromOneBased(1));
-        assertCommandSuccess(CARL);
+        assertCommandSuccess(CAP);
 
         /* ----------------------------------- Perform invalid add operations --------------------------------------- */
 
         /* Case: add a duplicate record -> rejected */
-        command = RecordUtil.getSpendCommand(HOON);
+        command = RecordUtil.getSpendCommand(HAMBURGER);
         assertCommandFailure(command, SpendCommand.MESSAGE_DUPLICATE_RECORD);
 
         /* Case: add a duplicate record except with different amount -> rejected */
-        toSpend = new RecordBuilder(HOON).withAmount(VALID_AMOUNT_BOB).build();
+        toSpend = new RecordBuilder(HAMBURGER).withAmount(VALID_AMOUNT_BOB).build();
         command = RecordUtil.getSpendCommand(toSpend);
         assertCommandFailure(command, SpendCommand.MESSAGE_DUPLICATE_RECORD);
 
         /* Case: add a duplicate record except with different date -> rejected */
-        toSpend = new RecordBuilder(HOON).withDate(VALID_DATE_BOB).build();
+        toSpend = new RecordBuilder(HAMBURGER).withDate(VALID_DATE_BOB).build();
         command = RecordUtil.getSpendCommand(toSpend);
         assertCommandFailure(command, SpendCommand.MESSAGE_DUPLICATE_RECORD);
 
         /* Case: add a duplicate record except with different categories -> rejected */
-        command = RecordUtil.getSpendCommand(HOON) + " " + PREFIX_CATEGORY.getPrefix() + "friends";
+        command = RecordUtil.getSpendCommand(HAMBURGER) + " " + PREFIX_CATEGORY.getPrefix() + "friends";
         assertCommandFailure(command, SpendCommand.MESSAGE_DUPLICATE_RECORD);
 
         /* Case: missing name -> rejected */

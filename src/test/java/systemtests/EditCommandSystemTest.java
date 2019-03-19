@@ -24,7 +24,7 @@ import static seedu.finance.testutil.TypicalIndexes.INDEX_FIRST_RECORD;
 import static seedu.finance.testutil.TypicalIndexes.INDEX_SECOND_RECORD;
 import static seedu.finance.testutil.TypicalRecords.AMY;
 import static seedu.finance.testutil.TypicalRecords.BOB;
-import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_MEIER;
+import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_DONUT;
 
 import org.junit.Test;
 
@@ -94,7 +94,7 @@ public class EditCommandSystemTest extends FinanceTrackerSystemTest {
         /* ------------------ Performing edit operation while a filtered list is being shown ------------------------ */
 
         /* Case: filtered record list, edit index within bounds of finance tracker and record list -> edited */
-        showRecordsWithName(KEYWORD_MATCHING_MEIER);
+        showRecordsWithName(KEYWORD_MATCHING_DONUT);
         index = INDEX_FIRST_RECORD;
         assertTrue(index.getZeroBased() < getModel().getFilteredRecordList().size());
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + " " + NAME_DESC_BOB;
@@ -105,7 +105,7 @@ public class EditCommandSystemTest extends FinanceTrackerSystemTest {
         /* Case: filtered record list, edit index within bounds of finance tracker but out of bounds of record list
          * -> rejected
          */
-        showRecordsWithName(KEYWORD_MATCHING_MEIER);
+        showRecordsWithName(KEYWORD_MATCHING_DONUT);
         int invalidIndex = getModel().getFinanceTracker().getRecordList().size();
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + invalidIndex + NAME_DESC_BOB,
                 Messages.MESSAGE_INVALID_RECORD_DISPLAYED_INDEX);

@@ -2,7 +2,7 @@ package seedu.finance.storage;
 
 import static org.junit.Assert.assertEquals;
 import static seedu.finance.storage.JsonAdaptedRecord.MISSING_FIELD_MESSAGE_FORMAT;
-import static seedu.finance.testutil.TypicalRecords.BENSON;
+import static seedu.finance.testutil.TypicalRecords.BANANA;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,18 +22,18 @@ public class JsonAdaptedRecordTest {
     private static final String INVALID_DATE = "59/59/2109";
     private static final String INVALID_CATEGORY = "#friend";
 
-    private static final String VALID_NAME = BENSON.getName().toString();
-    private static final String VALID_AMOUNT = BENSON.getAmount().toString();
-    private static final String VALID_DATE = BENSON.getDate().toString();
-    private static final String VALID_DESCRIPTION = BENSON.getDescription().toString();
-    private static final List<JsonAdaptedCategory> VALID_CATEGORIES = BENSON.getCategories().stream()
+    private static final String VALID_NAME = BANANA.getName().toString();
+    private static final String VALID_AMOUNT = BANANA.getAmount().toString();
+    private static final String VALID_DATE = BANANA.getDate().toString();
+    private static final String VALID_DESCRIPTION = BANANA.getDescription().toString();
+    private static final List<JsonAdaptedCategory> VALID_CATEGORIES = BANANA.getCategories().stream()
             .map(JsonAdaptedCategory::new)
             .collect(Collectors.toList());
 
     @Test
     public void toModelType_validRecordDetails_returnsRecord() throws Exception {
-        JsonAdaptedRecord record = new JsonAdaptedRecord(BENSON);
-        assertEquals(BENSON, record.toModelType());
+        JsonAdaptedRecord record = new JsonAdaptedRecord(BANANA);
+        assertEquals(BANANA, record.toModelType());
     }
 
     @Test

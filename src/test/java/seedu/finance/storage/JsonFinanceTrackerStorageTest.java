@@ -2,9 +2,9 @@ package seedu.finance.storage;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static seedu.finance.testutil.TypicalRecords.ALICE;
-import static seedu.finance.testutil.TypicalRecords.HOON;
-import static seedu.finance.testutil.TypicalRecords.IDA;
+import static seedu.finance.testutil.TypicalRecords.APPLE;
+import static seedu.finance.testutil.TypicalRecords.HAMBURGER;
+import static seedu.finance.testutil.TypicalRecords.IPHONE;
 import static seedu.finance.testutil.TypicalRecords.getTypicalFinanceTracker;
 
 import java.io.IOException;
@@ -85,14 +85,14 @@ public class JsonFinanceTrackerStorageTest {
         assertEquals(original, new FinanceTracker(readBack));
 
         // Modify data, overwrite exiting file, and read back
-        original.addRecord(HOON);
-        original.removeRecord(ALICE);
+        original.addRecord(HAMBURGER);
+        original.removeRecord(APPLE);
         jsonFinanceTrackerStorage.saveFinanceTracker(original, filePath);
         readBack = jsonFinanceTrackerStorage.readFinanceTracker(filePath).get();
         assertEquals(original, new FinanceTracker(readBack));
 
         // Save and read without specifying file path
-        original.addRecord(IDA);
+        original.addRecord(IPHONE);
         jsonFinanceTrackerStorage.saveFinanceTracker(original); // file path not specified
         readBack = jsonFinanceTrackerStorage.readFinanceTracker().get(); // file path not specified
         assertEquals(original, new FinanceTracker(readBack));

@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static seedu.finance.testutil.TypicalRecords.AMY;
 import static seedu.finance.testutil.TypicalRecords.BOB;
-import static seedu.finance.testutil.TypicalRecords.CARL;
+import static seedu.finance.testutil.TypicalRecords.CAP;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -20,7 +20,7 @@ public class VersionedFinanceTrackerTest {
 
     private final ReadOnlyFinanceTracker financeTrackerWithAmy = new FinanceTrackerBuilder().withRecord(AMY).build();
     private final ReadOnlyFinanceTracker financeTrackerWithBob = new FinanceTrackerBuilder().withRecord(BOB).build();
-    private final ReadOnlyFinanceTracker financeTrackerWithCarl = new FinanceTrackerBuilder().withRecord(CARL).build();
+    private final ReadOnlyFinanceTracker financeTrackerWithCarl = new FinanceTrackerBuilder().withRecord(CAP).build();
     private final ReadOnlyFinanceTracker emptyFinanceTracker = new FinanceTrackerBuilder().build();
 
     @Test

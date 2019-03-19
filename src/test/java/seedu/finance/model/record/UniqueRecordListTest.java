@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_AMOUNT_BOB;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_CATEGORY_HUSBAND;
-import static seedu.finance.testutil.TypicalRecords.ALICE;
+import static seedu.finance.testutil.TypicalRecords.APPLE;
 import static seedu.finance.testutil.TypicalRecords.BOB;
 
 import java.util.Arrays;
@@ -34,19 +34,19 @@ public class UniqueRecordListTest {
 
     @Test
     public void contains_recordNotInList_returnsFalse() {
-        assertFalse(uniqueRecordList.contains(ALICE));
+        assertFalse(uniqueRecordList.contains(APPLE));
     }
 
     @Test
     public void contains_recordInList_returnsTrue() {
-        uniqueRecordList.add(ALICE);
-        assertTrue(uniqueRecordList.contains(ALICE));
+        uniqueRecordList.add(APPLE);
+        assertTrue(uniqueRecordList.contains(APPLE));
     }
 
     @Test
     public void contains_recordWithSameIdentityFieldsInList_returnsTrue() {
-        uniqueRecordList.add(ALICE);
-        Record editedAlice = new RecordBuilder(ALICE).withAmount(VALID_AMOUNT_BOB)
+        uniqueRecordList.add(APPLE);
+        Record editedAlice = new RecordBuilder(APPLE).withAmount(VALID_AMOUNT_BOB)
                 .withCategories(VALID_CATEGORY_HUSBAND)
                 .build();
         assertTrue(uniqueRecordList.contains(editedAlice));
@@ -60,45 +60,45 @@ public class UniqueRecordListTest {
 
     @Test
     public void add_duplicateRecord_throwsDuplicateRecordException() {
-        uniqueRecordList.add(ALICE);
+        uniqueRecordList.add(APPLE);
         thrown.expect(DuplicateRecordException.class);
-        uniqueRecordList.add(ALICE);
+        uniqueRecordList.add(APPLE);
     }
 
     @Test
     public void setRecord_nullTargetRecord_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
-        uniqueRecordList.setRecord(null, ALICE);
+        uniqueRecordList.setRecord(null, APPLE);
     }
 
     @Test
     public void setRecord_nullEditedRecord_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
-        uniqueRecordList.setRecord(ALICE, null);
+        uniqueRecordList.setRecord(APPLE, null);
     }
 
     @Test
     public void setRecord_targetRecordNotInList_throwsRecordNotFoundException() {
         thrown.expect(RecordNotFoundException.class);
-        uniqueRecordList.setRecord(ALICE, ALICE);
+        uniqueRecordList.setRecord(APPLE, APPLE);
     }
 
     @Test
     public void setRecord_editedRecordIsSameRecord_success() {
-        uniqueRecordList.add(ALICE);
-        uniqueRecordList.setRecord(ALICE, ALICE);
+        uniqueRecordList.add(APPLE);
+        uniqueRecordList.setRecord(APPLE, APPLE);
         UniqueRecordList expectedUniqueRecordList = new UniqueRecordList();
-        expectedUniqueRecordList.add(ALICE);
+        expectedUniqueRecordList.add(APPLE);
         assertEquals(expectedUniqueRecordList, uniqueRecordList);
     }
 
     @Test
     public void setRecord_editedRecordHasSameIdentity_success() {
-        uniqueRecordList.add(ALICE);
-        Record editedAlice = new RecordBuilder(ALICE).withAmount(VALID_AMOUNT_BOB)
+        uniqueRecordList.add(APPLE);
+        Record editedAlice = new RecordBuilder(APPLE).withAmount(VALID_AMOUNT_BOB)
                 .withCategories(VALID_CATEGORY_HUSBAND)
                 .build();
-        uniqueRecordList.setRecord(ALICE, editedAlice);
+        uniqueRecordList.setRecord(APPLE, editedAlice);
         UniqueRecordList expectedUniqueRecordList = new UniqueRecordList();
         expectedUniqueRecordList.add(editedAlice);
         assertEquals(expectedUniqueRecordList, uniqueRecordList);
@@ -106,8 +106,8 @@ public class UniqueRecordListTest {
 
     @Test
     public void setRecord_editedRecordHasDifferentIdentity_success() {
-        uniqueRecordList.add(ALICE);
-        uniqueRecordList.setRecord(ALICE, BOB);
+        uniqueRecordList.add(APPLE);
+        uniqueRecordList.setRecord(APPLE, BOB);
         UniqueRecordList expectedUniqueRecordList = new UniqueRecordList();
         expectedUniqueRecordList.add(BOB);
         assertEquals(expectedUniqueRecordList, uniqueRecordList);
@@ -115,10 +115,10 @@ public class UniqueRecordListTest {
 
     @Test
     public void setRecord_editedRecordHasNonUniqueIdentity_throwsDuplicateRecordException() {
-        uniqueRecordList.add(ALICE);
+        uniqueRecordList.add(APPLE);
         uniqueRecordList.add(BOB);
         thrown.expect(DuplicateRecordException.class);
-        uniqueRecordList.setRecord(ALICE, BOB);
+        uniqueRecordList.setRecord(APPLE, BOB);
     }
 
     @Test
@@ -130,13 +130,13 @@ public class UniqueRecordListTest {
     @Test
     public void remove_recordDoesNotExist_throwsRecordNotFoundException() {
         thrown.expect(RecordNotFoundException.class);
-        uniqueRecordList.remove(ALICE);
+        uniqueRecordList.remove(APPLE);
     }
 
     @Test
     public void remove_existingRecord_removesRecord() {
-        uniqueRecordList.add(ALICE);
-        uniqueRecordList.remove(ALICE);
+        uniqueRecordList.add(APPLE);
+        uniqueRecordList.remove(APPLE);
         UniqueRecordList expectedUniqueRecordList = new UniqueRecordList();
         assertEquals(expectedUniqueRecordList, uniqueRecordList);
     }
@@ -149,7 +149,7 @@ public class UniqueRecordListTest {
 
     @Test
     public void setRecords_uniqueRecordList_replacesOwnListWithProvidedUniqueRecordList() {
-        uniqueRecordList.add(ALICE);
+        uniqueRecordList.add(APPLE);
         UniqueRecordList expectedUniqueRecordList = new UniqueRecordList();
         expectedUniqueRecordList.add(BOB);
         uniqueRecordList.setRecords(expectedUniqueRecordList);
@@ -164,7 +164,7 @@ public class UniqueRecordListTest {
 
     @Test
     public void setRecords_list_replacesOwnListWithProvidedList() {
-        uniqueRecordList.add(ALICE);
+        uniqueRecordList.add(APPLE);
         List<Record> recordList = Collections.singletonList(BOB);
         uniqueRecordList.setRecords(recordList);
         UniqueRecordList expectedUniqueRecordList = new UniqueRecordList();
@@ -174,7 +174,7 @@ public class UniqueRecordListTest {
 
     @Test
     public void setRecords_listWithDuplicateRecords_throwsDuplicateRecordException() {
-        List<Record> listWithDuplicateRecords = Arrays.asList(ALICE, ALICE);
+        List<Record> listWithDuplicateRecords = Arrays.asList(APPLE, APPLE);
         thrown.expect(DuplicateRecordException.class);
         uniqueRecordList.setRecords(listWithDuplicateRecords);
     }

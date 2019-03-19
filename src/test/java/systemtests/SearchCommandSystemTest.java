@@ -2,10 +2,10 @@ package systemtests;
 
 import static org.junit.Assert.assertFalse;
 import static seedu.finance.commons.core.Messages.MESSAGE_RECORDS_LISTED_OVERVIEW;
-import static seedu.finance.testutil.TypicalRecords.BENSON;
-import static seedu.finance.testutil.TypicalRecords.CARL;
-import static seedu.finance.testutil.TypicalRecords.DANIEL;
-import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_MEIER;
+import static seedu.finance.testutil.TypicalRecords.BANANA;
+import static seedu.finance.testutil.TypicalRecords.CAP;
+import static seedu.finance.testutil.TypicalRecords.DONUT;
+import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_DONUT;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,45 +27,45 @@ public class SearchCommandSystemTest extends FinanceTrackerSystemTest {
         /* Case: find multiple records in finance tracker, command with leading spaces and trailing spaces
          * -> 2 records found
          */
-        String command = "   " + SearchCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER + "   ";
+        String command = "   " + SearchCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_DONUT + "   ";
         Model expectedModel = getModel();
-        ModelHelper.setFilteredList(expectedModel, BENSON, DANIEL); // first names of Benson and Daniel are "Meier"
+        ModelHelper.setFilteredList(expectedModel, BANANA, DONUT); // Banana Donut and Chocolate Donut
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: repeat previous find command where record list is displaying the records we are finding
          * -> 2 records found
          */
-        command = SearchCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER;
+        command = SearchCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_DONUT;
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: find record where record list is not displaying the record we are finding -> 1 record found */
-        command = SearchCommand.COMMAND_WORD + " Carl";
-        ModelHelper.setFilteredList(expectedModel, CARL);
+        command = SearchCommand.COMMAND_WORD + " Cap";
+        ModelHelper.setFilteredList(expectedModel, CAP);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: find multiple records in finance tracker, 2 keywords -> 2 records found */
-        command = SearchCommand.COMMAND_WORD + " Benson Daniel";
-        ModelHelper.setFilteredList(expectedModel, BENSON, DANIEL);
+        command = SearchCommand.COMMAND_WORD + " Banana Donut";
+        ModelHelper.setFilteredList(expectedModel, BANANA, DONUT);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: find multiple records in finance tracker, 2 keywords in reversed order -> 2 records found */
-        command = SearchCommand.COMMAND_WORD + " Daniel Benson";
+        command = SearchCommand.COMMAND_WORD + " Donut Banana";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: find multiple records in finance tracker, 2 keywords with 1 repeat -> 2 records found */
-        command = SearchCommand.COMMAND_WORD + " Daniel Benson Daniel";
+        command = SearchCommand.COMMAND_WORD + " Donut Banana Donut";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: find multiple records in finance tracker, 2 matching keywords and 1 non-matching keyword
          * -> 2 records found
          */
-        command = SearchCommand.COMMAND_WORD + " Daniel Benson NonMatchingKeyWord";
+        command = SearchCommand.COMMAND_WORD + " Donut Banana NonMatchingKeyWord";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
@@ -81,32 +81,32 @@ public class SearchCommandSystemTest extends FinanceTrackerSystemTest {
 
         /* Case: find same records in finance tracker after deleting 1 of them -> 1 record found */
         executeCommand(DeleteCommand.COMMAND_WORD + " 1");
-        assertFalse(getModel().getFinanceTracker().getRecordList().contains(BENSON));
-        command = SearchCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER;
+        assertFalse(getModel().getFinanceTracker().getRecordList().contains(BANANA));
+        command = SearchCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_DONUT;
         expectedModel = getModel();
-        ModelHelper.setFilteredList(expectedModel, DANIEL);
+        ModelHelper.setFilteredList(expectedModel, DONUT);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: find record in finance tracker, keyword is same as name but of different case -> 1 record found */
-        command = SearchCommand.COMMAND_WORD + " MeIeR";
+        command = SearchCommand.COMMAND_WORD + " DoNuT";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: find record in finance tracker, keyword is substring of name -> 0 records found */
-        command = SearchCommand.COMMAND_WORD + " Mei";
+        command = SearchCommand.COMMAND_WORD + " Don";
         ModelHelper.setFilteredList(expectedModel);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: find record in finance tracker, name is substring of keyword -> 0 records found */
-        command = SearchCommand.COMMAND_WORD + " Meiers";
+        command = SearchCommand.COMMAND_WORD + " Donuts";
         ModelHelper.setFilteredList(expectedModel);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: find record not in finance tracker -> 0 records found */
-        command = SearchCommand.COMMAND_WORD + " Mark";
+        command = SearchCommand.COMMAND_WORD + " Milo";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
@@ -126,7 +126,7 @@ public class SearchCommandSystemTest extends FinanceTrackerSystemTest {
         assertSelectedCardUnchanged();*/
 
         /* Case: find categories of record in finance tracker -> 0 records found */
-        List<Category> categories = new ArrayList<>(DANIEL.getCategories());
+        List<Category> categories = new ArrayList<>(DONUT.getCategories());
         command = SearchCommand.COMMAND_WORD + " " + categories.get(0).categoryName;
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
@@ -134,22 +134,22 @@ public class SearchCommandSystemTest extends FinanceTrackerSystemTest {
         /* Case: find while a record is selected -> selected card deselected */
         showAllRecords();
         selectRecord(Index.fromOneBased(1));
-        assertFalse(getRecordListPanel().getHandleToSelectedCard().getName().equals(DANIEL.getName().fullName));
-        command = SearchCommand.COMMAND_WORD + " Daniel";
-        ModelHelper.setFilteredList(expectedModel, DANIEL);
+        assertFalse(getRecordListPanel().getHandleToSelectedCard().getName().equals(DONUT.getName().fullName));
+        command = SearchCommand.COMMAND_WORD + " Donut";
+        ModelHelper.setFilteredList(expectedModel, DONUT);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardDeselected();
 
         /* Case: find record in empty finance tracker -> 0 records found */
         deleteAllRecords();
-        command = SearchCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER;
+        command = SearchCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_DONUT;
         expectedModel = getModel();
-        ModelHelper.setFilteredList(expectedModel, DANIEL);
+        ModelHelper.setFilteredList(expectedModel, DONUT);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
         /* Case: mixed case command word -> 0 records found */
-        command = "FiNd Meier";
+        command = "FiNd Donut";
         assertCommandSuccess(command, expectedModel);
 
     }

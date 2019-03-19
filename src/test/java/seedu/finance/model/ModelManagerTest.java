@@ -5,8 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_AMOUNT_BOB;
 import static seedu.finance.model.Model.PREDICATE_SHOW_ALL_RECORD;
-import static seedu.finance.testutil.TypicalRecords.ALICE;
-import static seedu.finance.testutil.TypicalRecords.BENSON;
+import static seedu.finance.testutil.TypicalRecords.APPLE;
+import static seedu.finance.testutil.TypicalRecords.BANANA;
 import static seedu.finance.testutil.TypicalRecords.BOB;
 
 import java.nio.file.Path;
@@ -93,39 +93,39 @@ public class ModelManagerTest {
 
     @Test
     public void hasRecord_recordNotInFinanceTracker_returnsFalse() {
-        assertFalse(modelManager.hasRecord(ALICE));
+        assertFalse(modelManager.hasRecord(APPLE));
     }
 
     @Test
     public void hasRecord_recordInFinanceTracker_returnsTrue() {
-        modelManager.addRecord(ALICE);
-        assertTrue(modelManager.hasRecord(ALICE));
+        modelManager.addRecord(APPLE);
+        assertTrue(modelManager.hasRecord(APPLE));
     }
 
     @Test
     public void deleteRecord_recordIsSelectedAndFirstRecordInFilteredRecordList_selectionCleared() {
-        modelManager.addRecord(ALICE);
-        modelManager.setSelectedRecord(ALICE);
-        modelManager.deleteRecord(ALICE);
+        modelManager.addRecord(APPLE);
+        modelManager.setSelectedRecord(APPLE);
+        modelManager.deleteRecord(APPLE);
         assertEquals(null, modelManager.getSelectedRecord());
     }
 
     @Test
     public void deleteRecord_recordIsSelectedAndSecondRecordInFilteredRecordList_firstRecordSelected() {
-        modelManager.addRecord(ALICE);
+        modelManager.addRecord(APPLE);
         modelManager.addRecord(BOB);
-        assertEquals(Arrays.asList(ALICE, BOB), modelManager.getFilteredRecordList());
+        assertEquals(Arrays.asList(APPLE, BOB), modelManager.getFilteredRecordList());
         modelManager.setSelectedRecord(BOB);
         modelManager.deleteRecord(BOB);
-        assertEquals(ALICE, modelManager.getSelectedRecord());
+        assertEquals(APPLE, modelManager.getSelectedRecord());
     }
 
     @Test
     public void setRecord_recordIsSelected_selectedRecordUpdated() {
-        modelManager.addRecord(ALICE);
-        modelManager.setSelectedRecord(ALICE);
-        Record updatedAlice = new RecordBuilder(ALICE).withAmount(VALID_AMOUNT_BOB).build();
-        modelManager.setRecord(ALICE, updatedAlice);
+        modelManager.addRecord(APPLE);
+        modelManager.setSelectedRecord(APPLE);
+        Record updatedAlice = new RecordBuilder(APPLE).withAmount(VALID_AMOUNT_BOB).build();
+        modelManager.setRecord(APPLE, updatedAlice);
         assertEquals(updatedAlice, modelManager.getSelectedRecord());
     }
 
@@ -138,20 +138,20 @@ public class ModelManagerTest {
     @Test
     public void setSelectedRecord_recordNotInFilteredRecordList_throwsRecordNotFoundException() {
         thrown.expect(RecordNotFoundException.class);
-        modelManager.setSelectedRecord(ALICE);
+        modelManager.setSelectedRecord(APPLE);
     }
 
     @Test
     public void setSelectedRecord_recordInFilteredRecordList_setsSelectedRecord() {
-        modelManager.addRecord(ALICE);
-        assertEquals(Collections.singletonList(ALICE), modelManager.getFilteredRecordList());
-        modelManager.setSelectedRecord(ALICE);
-        assertEquals(ALICE, modelManager.getSelectedRecord());
+        modelManager.addRecord(APPLE);
+        assertEquals(Collections.singletonList(APPLE), modelManager.getFilteredRecordList());
+        modelManager.setSelectedRecord(APPLE);
+        assertEquals(APPLE, modelManager.getSelectedRecord());
     }
 
     @Test
     public void equals() {
-        FinanceTracker financeTracker = new FinanceTrackerBuilder().withRecord(ALICE).withRecord(BENSON).build();
+        FinanceTracker financeTracker = new FinanceTrackerBuilder().withRecord(APPLE).withRecord(BANANA).build();
         FinanceTracker differentFinanceTracker = new FinanceTracker();
         UserPrefs userPrefs = new UserPrefs();
 
@@ -173,7 +173,7 @@ public class ModelManagerTest {
         assertFalse(modelManager.equals(new ModelManager(differentFinanceTracker, userPrefs)));
 
         // different filteredList -> returns false
-        String[] keywords = ALICE.getName().fullName.split("\\s+");
+        String[] keywords = APPLE.getName().fullName.split("\\s+");
         modelManager.updateFilteredRecordList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
         assertFalse(modelManager.equals(new ModelManager(financeTracker, userPrefs)));
 

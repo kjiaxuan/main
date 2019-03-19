@@ -1,6 +1,6 @@
 package systemtests;
 
-import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_MEIER;
+import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_DONUT;
 
 import org.junit.Test;
 
@@ -43,7 +43,7 @@ public class ClearCommandSystemTest extends FinanceTrackerSystemTest {
 
         /* Case: filters the record list before clearing -> entire finance tracker cleared */
         executeCommand(UndoCommand.COMMAND_WORD); // restores the original finance tracker
-        showRecordsWithName(KEYWORD_MATCHING_MEIER);
+        showRecordsWithName(KEYWORD_MATCHING_DONUT);
         assertCommandSuccess(ClearCommand.COMMAND_WORD);
         assertSelectedCardUnchanged();
 

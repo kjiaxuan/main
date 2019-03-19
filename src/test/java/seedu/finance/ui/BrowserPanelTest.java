@@ -2,7 +2,7 @@ package seedu.finance.ui;
 
 import static guitests.guihandles.WebViewUtil.waitUntilBrowserLoaded;
 import static org.junit.Assert.assertEquals;
-import static seedu.finance.testutil.TypicalRecords.ALICE;
+import static seedu.finance.testutil.TypicalRecords.APPLE;
 
 import java.net.URL;
 
@@ -32,8 +32,8 @@ public class BrowserPanelTest extends GuiUnitTest {
         assertEquals(BrowserPanel.DEFAULT_PAGE, browserPanelHandle.getLoadedUrl());
 
         // associated web page of a record
-        guiRobot.interact(() -> selectedRecord.set(ALICE));
-        URL expectedRecordUrl = new URL(BrowserPanel.SEARCH_PAGE_URL + ALICE.getName().fullName.replaceAll(" ", "%20"));
+        guiRobot.interact(() -> selectedRecord.set(APPLE));
+        URL expectedRecordUrl = new URL(BrowserPanel.SEARCH_PAGE_URL + APPLE.getName().fullName.replaceAll(" ", "%20"));
 
         waitUntilBrowserLoaded(browserPanelHandle);
         assertEquals(expectedRecordUrl, browserPanelHandle.getLoadedUrl());
