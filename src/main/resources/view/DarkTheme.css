@@ -403,3 +403,18 @@
     -fx-text-fill: white;
     -fx-background-color: #5a287a;
 }
+
+ #categories .tan {
+    -fx-text-fill: black;
+    -fx-background-color: tan;
+}
+
+ #categories .coral {
+    -fx-text-fill: white;
+    -fx-background-color: coral;
+}
+
+ #categories .turquoise {
+    -fx-text-fill: black;
+    -fx-background-color: turquoise;
+}
