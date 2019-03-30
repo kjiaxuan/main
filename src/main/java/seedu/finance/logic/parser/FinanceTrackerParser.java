@@ -136,7 +136,7 @@ public class FinanceTrackerParser {
             //Have to add in alias for summary command
             //case SummaryCommand.COMMAND_ALIAS:
             return new SummaryCommand();
-
+            
         case SortCommand.COMMAND_WORD:
             return new SortCommandParser().parse(arguments);
 

@@ -259,7 +259,7 @@ public class FinanceTrackerParserTest {
     public void parseCommand_search() throws Exception {
         List<String> keywords = Arrays.asList("foo", "bar", "baz");
         SearchCommand command = (SearchCommand) parser.parseCommand(
-                SearchCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
+                SearchCommand.COMMAND_WORD + " -name " + keywords.stream().collect(Collectors.joining(" ")));
         assertEquals(new SearchCommand(new NameContainsKeywordsPredicate(keywords)), command);
     }
 
@@ -267,7 +267,7 @@ public class FinanceTrackerParserTest {
     public void parseCommand_searchAlias() throws Exception {
         List<String> keywords = Arrays.asList("foo", "bar", "baz");
         SearchCommand command = (SearchCommand) parser.parseCommand(
-                SearchCommand.COMMAND_ALIAS + " " + keywords.stream().collect(Collectors.joining(" ")));
+                SearchCommand.COMMAND_ALIAS + " -name " + keywords.stream().collect(Collectors.joining(" ")));
         assertEquals(new SearchCommand(new NameContainsKeywordsPredicate(keywords)), command);
     }
 

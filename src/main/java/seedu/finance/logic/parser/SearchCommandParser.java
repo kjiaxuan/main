@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 import seedu.finance.logic.commands.SearchCommand;
 import seedu.finance.logic.parser.exceptions.ParseException;
+import seedu.finance.model.record.CategoryContainsKeywordsPredicate;
 import seedu.finance.model.record.NameContainsKeywordsPredicate;
 
 /**
@@ -25,9 +26,18 @@ public class SearchCommandParser implements Parser<SearchCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, SearchCommand.MESSAGE_USAGE));
         }
 
-        String[] nameKeywords = trimmedArgs.split("\\s+");
+        String[] argsWithFlag = trimmedArgs.split("\\s+");
+        String[] nameKeywords = Arrays.copyOfRange(argsWithFlag, 1, argsWithFlag.length);
 
-        return new SearchCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
+        switch (argsWithFlag[0]) {
+        case "-name" :
+            return new SearchCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
+        case "-cat":
+            return new SearchCommand(new CategoryContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
+        default:
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, SearchCommand.INVALID_FLAG));
+        }
     }
 
 }

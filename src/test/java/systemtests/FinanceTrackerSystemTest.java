@@ -146,7 +146,7 @@ public abstract class FinanceTrackerSystemTest {
      * Displays all records with any parts of their names matching {@code keyword} (case-insensitive).
      */
     protected void showRecordsWithName(String keyword) {
-        executeCommand(SearchCommand.COMMAND_WORD + " " + keyword);
+        executeCommand(SearchCommand.COMMAND_WORD + " -name " + keyword);
         assertTrue(getModel().getFilteredRecordList().size() < getModel().getFinanceTracker().getRecordList().size());
     }
 

@@ -157,12 +157,17 @@ Search for an entry using a name or category as keyword.
 
 *Alias*: `find`
 
-*Format*: `search KEYWORD [MORE_KEYWORDS]`
+*Format*: `search -FLAG KEYWORD [MORE_KEYWORDS]`
+
+*Valid flags*:
+
+- `-name`: Search by name
+- `-cat`: Search by category
 
 *Examples*:
 
-* `search Transport` +
-* `search cake bread Food`
+* `search -cat Transport`
+* `search -name cake bread`
 
 === Deleting an entry: `delete`
 
