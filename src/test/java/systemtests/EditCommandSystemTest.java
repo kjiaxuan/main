@@ -22,12 +22,16 @@ import static seedu.finance.logic.commands.CommandTestUtil.VALID_DATE_AMY;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.finance.logic.parser.CliSyntax.PREFIX_CATEGORY;
+import static seedu.finance.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.finance.model.Model.PREDICATE_SHOW_ALL_RECORD;
 import static seedu.finance.testutil.TypicalIndexes.INDEX_FIRST_RECORD;
 import static seedu.finance.testutil.TypicalIndexes.INDEX_SECOND_RECORD;
 import static seedu.finance.testutil.TypicalRecords.AMY;
 import static seedu.finance.testutil.TypicalRecords.BOB;
 import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_DONUT;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.Test;
 
@@ -237,6 +241,12 @@ public class EditCommandSystemTest extends FinanceTrackerSystemTest {
 
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_RECORD.getOneBased()
                 + INVALID_DATE_DESC, Date.MESSAGE_CONSTRAINTS);
+
+        /* Case: Invalid date because date is a future date -> rejected */
+        LocalDate date = LocalDate.now().plusDays(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_RECORD.getOneBased()
+                + " " + PREFIX_DATE + date.format(formatter), Date.MESSAGE_CONSTRAINTS);
 
 
         /* Case: invalid category -> rejected */

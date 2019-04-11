@@ -384,7 +384,7 @@ Index refers to the index number shown in the list.
 * `INDEX` *must be a positive integer* 1, 2, 3, ...
 * `INDEX` must be within the total number of records that are displayed.
 * At least one of the optional fields must be provided.
-* Date cannot be a future date. 
+* Date cannot be a future date.
 * Order of parameters inputted does not matter.
 * Existing values will be updated to the input values.
 ====

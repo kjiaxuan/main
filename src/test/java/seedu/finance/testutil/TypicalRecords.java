@@ -42,7 +42,7 @@ public class TypicalRecords {
             .withAmount("20.00").withDate("02/02/2017").withDescription(new Description(""))
             .withCategory("food").build();
     public static final Record GIFT = new RecordBuilder().withName("Gift")
-            .withAmount("24.90").withDate("12/02/2027").withDescription(new Description(""))
+            .withAmount("24.90").withDate("12/02/2019").withDescription(new Description(""))
             .withCategory("gift").build();
 
     // Manually added

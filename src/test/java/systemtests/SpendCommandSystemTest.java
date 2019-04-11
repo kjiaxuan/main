@@ -16,12 +16,16 @@ import static seedu.finance.logic.commands.CommandTestUtil.NAME_DESC_BOB;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_AMOUNT_BOB;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_DATE_BOB;
 import static seedu.finance.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.finance.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.finance.testutil.TypicalRecords.AMY;
 import static seedu.finance.testutil.TypicalRecords.BOB;
 import static seedu.finance.testutil.TypicalRecords.CAP;
 import static seedu.finance.testutil.TypicalRecords.HAMBURGER;
 import static seedu.finance.testutil.TypicalRecords.IPHONE;
 import static seedu.finance.testutil.TypicalRecords.KEYWORD_MATCHING_DONUT;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.Test;
 
@@ -217,6 +221,13 @@ public class SpendCommandSystemTest extends FinanceTrackerSystemTest {
 
         command = SpendCommand.COMMAND_WORD + NAME_DESC_AMY + AMOUNT_DESC_AMY + INVALID_DATE_DESC
                 + CATEGORY_DESC_FRIEND;
+        assertCommandFailure(command, Date.MESSAGE_CONSTRAINTS);
+
+        /* Case: InValid date because date is a future date -> rejected */
+        LocalDate date = LocalDate.now().plusDays(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        command = SpendCommand.COMMAND_WORD + NAME_DESC_AMY + AMOUNT_DESC_AMY + " "
+                + PREFIX_DATE + date.format(formatter) + CATEGORY_DESC_FRIEND;
         assertCommandFailure(command, Date.MESSAGE_CONSTRAINTS);
 
 
