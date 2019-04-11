@@ -12,7 +12,8 @@ import java.time.format.DateTimeFormatter;
  */
 public class Date {
 
-    public static final String MESSAGE_CONSTRAINTS = "Dates should be of the format dd/mm/yyyy and be a valid date";
+    public static final String MESSAGE_CONSTRAINTS = "Dates should be of the format dd/mm/yyyy and be a valid date.\n"
+            + "Addition of future expenses is not allowed.";
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -49,12 +50,17 @@ public class Date {
      */
     public static boolean isValidDate(String test) {
         String[] parsedDate = test.split("/");
+        LocalDate date;
         try {
             int year = Integer.parseInt(parsedDate[2]);
             int month = Integer.parseInt(parsedDate[1]);
             int day = Integer.parseInt(parsedDate[0]);
-            LocalDate date = LocalDate.of(year, month, day);
+            date = LocalDate.of(year, month, day);
         } catch (Exception e) {
+            return false;
+        }
+
+        if (date.isAfter(LocalDate.now())) {
             return false;
         }
 

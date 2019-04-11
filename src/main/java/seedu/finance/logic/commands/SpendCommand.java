@@ -30,6 +30,7 @@ public class SpendCommand extends Command {
             + PREFIX_DESCRIPTION + "DESCRIPTION\n"
             + "Note that each record should only have one category.\n"
             + "If date is not inputted, local date will be used.\n"
+            + "Addition of futures expenses is not allowed.\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_AMOUNT + "123.23 "
