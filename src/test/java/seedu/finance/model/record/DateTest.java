@@ -47,7 +47,7 @@ public class DateTest {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate futureDate = LocalDate.now().plusDays(1);
         assertFalse(Date.isValidDate(futureDate.format(formatter)));
-        
+
 
         // valid date
         assertTrue(Date.isValidDate("30/03/2009"));

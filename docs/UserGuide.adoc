@@ -327,6 +327,7 @@ category and will be shown with the first character in uppercase and the rest of
 in lowercase (in the above example, it will be shown as `Clothes`)
 * Category name supplied must be https://en.wikipedia.org/wiki/Alphanumeric[alphanumeric]
 and cannot contain special characters such as `:<>;\/|?~^%$#@`
+* Date cannot be a date in the future. Addition of future expenses are not allowed.
 * If no date is inputted, current local date will be used instead.
 * Order of the different parameters does not matter.
 
@@ -383,6 +384,7 @@ Index refers to the index number shown in the list.
 * `INDEX` *must be a positive integer* 1, 2, 3, ...
 * `INDEX` must be within the total number of records that are displayed.
 * At least one of the optional fields must be provided.
+* Date cannot be a future date. 
 * Order of parameters inputted does not matter.
 * Existing values will be updated to the input values.
 ====
