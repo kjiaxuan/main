@@ -18,10 +18,12 @@ endif::[]
 
 By: `Team W17-3`      Since: `March 2019`      Licence: `MIT`
 
-== Introduction
+== [yellow-background]#Introduction#
 [RED]#Welcome to the _In-Credit-Ble_ User Guide!!!!#
 
 [underline]#hiii#
+
+[yellow-background]#hi#
 
 lalalal
 
@@ -35,7 +37,7 @@ This user guide shows you how to get started using _In-Credit-Ble_. It also prov
 different features and shows you how to perform basic _In-Credit-Ble_ operations.
 
 // tag::quickstart[]
-== Quick Start
+== [red]#Quick Start#
 Follow these steps to get _In-Credit-Ble_ up and running on your computer in no time!
 
 .  Ensure you have Java version `9` or later installed in your computer. You can download and install the required
