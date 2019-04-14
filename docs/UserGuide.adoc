@@ -6,7 +6,7 @@
 :toc-placement: preamble
 :sectnums:
 :imagesDir: images
-:stylesDir: stylesheets
+//:stylesDir: stylesheets
 :xrefstyle: full
 :experimental:
 ifdef::env-github[]
