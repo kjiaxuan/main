@@ -19,7 +19,9 @@ endif::[]
 By: `Team W17-3`      Since: `March 2019`      Licence: `MIT`
 
 == [yellow-background]#Introduction#
-[RED]#Welcome to the _In-Credit-Ble_ User Guide!!!!#
+[aqua]#Welcome to the _In-Credit-Ble_ User Guide!!!!#
+
+trying aqua
 
 [underline]#hiii#
 
