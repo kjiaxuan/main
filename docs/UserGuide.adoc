@@ -6,7 +6,7 @@
 :toc-placement: preamble
 :sectnums:
 :imagesDir: images
-//:stylesDir: stylesheets
+:stylesDir: stylesheets
 :xrefstyle: full
 :experimental:
 ifdef::env-github[]
@@ -20,6 +20,8 @@ By: `Team W17-3`      Since: `March 2019`      Licence: `MIT`
 
 == Introduction
 [RED]#Welcome to the _In-Credit-Ble_ User Guide!!!!#
+
+[underline]#hiii#
 
 lalalal
 
