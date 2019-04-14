@@ -19,7 +19,74 @@ endif::[]
 By: `Team W17-3`      Since: `March 2019`      Licence: `MIT`
 
 == [yellow-background]#Introduction#
-[aqua]#Welcome to the _In-Credit-Ble_ User Guide!!!!#
+
+[aqua]#Welcome to the _In-Credit-Ble_ User Guide!!!!#  aqua
+
+[aqua-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!#  aqua background
+
+[black]#Welcome to the _In-Credit-Ble_ User Guide!!!!#  black
+
+[black-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!#  black background
+
+[blue]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying blue
+
+[blue-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying blue background
+
+[fuchsia]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying fuchsia
+
+[fuchsia-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying fuchsia background
+
+[gray]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying gray
+
+[gray-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying gray-background
+
+[green]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying green
+
+[green-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying green-background
+
+[lime]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying lime
+
+[lime-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying lime-background
+
+[maroon]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying maroon
+
+[maroon-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying maroon-background
+
+[navy]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying navy
+
+[navy-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying navy-background
+
+[olive]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying olive
+
+[olive-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying olive-background
+
+[purple]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying purple
+
+[purple-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying purple-background
+
+[red]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying red
+
+[red-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying red-background
+
+[silver]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying silver
+
+[silver-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying silver-background
+
+[teal]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying teal
+
+[teal-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying teal-background
+
+[white]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying white
+
+[white-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying white-background
+
+[yellow]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying yellow
+
+[yellow-background]#Welcome to the _In-Credit-Ble_ User Guide!!!!# trying yellow-background
+
+
+
+
 
 trying aqua
 
