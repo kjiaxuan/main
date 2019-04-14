@@ -19,7 +19,7 @@ endif::[]
 By: `Team W17-3`      Since: `March 2019`      Licence: `MIT`
 
 == Introduction
-Welcome to the _In-Credit-Ble_ User Guide! _In-Credit-Ble_ is your all-in-one application in managing and tracking your
+[RED]#Welcome to the _In-Credit-Ble_ User Guide!# _In-Credit-Ble_ is your all-in-one application in managing and tracking your
 personal finances. Our user-friendly interface will make it easy for you to see how much you can safely spend within your budget and be more aware
 of your spending habits. If you are a *fast typer*, *prefer to type* over using your mouse and *like to get things done
 efficiently*, then this is the product just for you! _In-Credit-Ble_ is designed for those who prefer to work with a
