@@ -15,6 +15,7 @@ ifdef::env-github[]
 :important-caption: :heavy_exclamation_mark:
 endif::[]
 :repoURL: https://github.com/cs2103-ay1819s2-w17-3/main
+:bl: pass:[ +]
 
 By: `Team W17-3`      Since: `March 2019`      Licence: `MIT`
 
@@ -25,6 +26,14 @@ personal finances. Our user-friendly interface will make it easy for you to see 
 of your spending habits. If you are a *fast typer*, *prefer to type* over using your mouse and *like to get things done
 efficiently*, then this is the product just for you! _In-Credit-Ble_ is designed for those who prefer to work with a
 *Command Line Interface (CLI)*.
+
+{bl}
+{bl}
+{bl}
+{bl}
+
+i added blank lines above?
+
 
 This user guide shows you how to get started using _In-Credit-Ble_. It also provides in-depth documentation on the
 different features and shows you how to perform basic _In-Credit-Ble_ operations.
